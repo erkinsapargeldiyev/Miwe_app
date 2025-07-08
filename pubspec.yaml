@@ -1,0 +1,64 @@
+name: miwe
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  fl_chart: ^1.0.0
+ 
+  
+  svg_flutter: ^0.0.1
+  intl: ^0.20.2
+  provider: ^6.1.5
+  flutter_svg: ^2.1.0
+  flutter_bloc: ^9.1.1
+  image_picker: ^1.1.2
+  barcode_scan2: ^4.5.1
+  carousel_slider: ^5.1.1
+   
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+ 
+  flutter_lints: ^5.0.0
+
+flutter:
+
+ 
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-VariableFont_wdth,wght.ttf
+          weight: 700
+          style: normal
+    - family: Inter
+      fonts:
+      - asset: assets\fonts\Inter-VariableFont_opsz,wght.ttf
+        style: normal
+    - family: Poppins
+      fonts:
+      - asset: assets\fonts\Poppins_Medium.ttf
+       
+        style: normal
+
