@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:miwe/colors/app_colors.dart';
 
 import 'package:miwe/features/garden/data/garden_model/garden_model.dart';
+import 'package:miwe/features/garden/presentation/views/image_page.dart';
 import 'package:miwe/features/garden/presentation/widgets/custom_row_text.dart';
 import 'package:miwe/features/garden/presentation/widgets/image_indicator.dart';
 import 'package:miwe/vectors/app_vectors.dart';
@@ -94,7 +95,23 @@ class _GardenSituationState extends State<GardenSituation> {
                             itemBuilder: (context, index) {
                               return ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(gardens[index].imageUrl),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => ImagePage(
+                                              images:
+                                                  gardens
+                                                      .map((e) => e.imageUrl)
+                                                      .toList(),
+                                            ),
+                                      ),
+                                    );
+                                  },
+                                  child: Image.asset(gardens[index].imageUrl),
+                                ),
                               );
                             },
                           ),

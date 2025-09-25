@@ -4,8 +4,7 @@ import 'package:miwe/colors/app_colors.dart';
 import 'package:miwe/const_views/widgets/lists.dart';
 import 'package:miwe/const_views/widgets/status_option.dart';
 import 'package:miwe/const_views/widgets/gardener_works_note.dart';
-import 'package:miwe/vectors/app_vectors.dart';
-import 'package:svg_flutter/svg.dart';
+
 
 class GardenStatus extends StatefulWidget {
   const GardenStatus({super.key});
@@ -31,15 +30,7 @@ class _GardenStatusState extends State<GardenStatus> {
       value: SystemUiOverlayStyle(statusBarColor: AppColors.statusBarColor),
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            title: Text('Baglaryň ýagdaýlary'),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: SvgPicture.asset(AppVectors.calendar),
-              ),
-            ],
-          ),
+          appBar: AppBar(title: Text('Baglaryň ýagdaýlary')),
           body: Column(
             children: [
               Padding(

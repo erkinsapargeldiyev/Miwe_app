@@ -7,6 +7,7 @@ import 'package:miwe/const_views/widgets/lists.dart';
 import 'package:miwe/const_views/widgets/selected_blok.dart';
 import 'package:miwe/const_views/widgets/status_option.dart';
 import 'package:miwe/const_views/widgets/my_drawer.dart';
+import 'package:miwe/features/garden/presentation/views/garden_situation.dart';
 import 'package:miwe/vectors/app_vectors.dart';
 
 class NotesPage extends StatefulWidget {
@@ -17,10 +18,23 @@ class NotesPage extends StatefulWidget {
 }
 
 class _NotesPageState extends State<NotesPage> {
-  List<String> noteSearhBloks = ['Hemmesi', 'A1 blok', 'A2 blok', 'A3 blok'];
-
   int? selectedBlokNote;
   int? selectedSituation;
+
+  List<String> gardenersList = [
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -85,16 +99,24 @@ class _NotesPageState extends State<NotesPage> {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 3,
+                  itemCount: gardenersList.length,
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
                         ListTile(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => GardenSituation(),
+                              ),
+                            );
+                          },
                           title: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                'Maksat',
+                                gardenersList[index],
                                 style: TextTheme.of(
                                   context,
                                 ).headlineLarge?.copyWith(
@@ -124,8 +146,8 @@ class _NotesPageState extends State<NotesPage> {
                                 index == 1
                                     ? AppColors.statusBlue
                                     : index == 2
-                                    ? AppColors.statusGreen
-                                    : AppColors.statusRed,
+                                    ? AppColors.statusRed
+                                    : AppColors.statusGreen,
                             height: 30,
                             width: 30,
                           ),

@@ -49,12 +49,9 @@ class AppVectors {
 
   static String dialogAction = 'assets/icons/dialog_action.svg';
 
-    static String chekBoks = 'assets/icons/chekBoks.svg';
+  static String chekBoks = 'assets/icons/chekBoks.svg';
 
-        static String splashBg = 'assets/icons/splash_bg.svg';
+  static String splashBg = 'assets/icons/splash_bg.svg';
 
-                static String splashLogo = 'assets/icons/splash_logo.svg';
-
-
-
+  static String splashLogo = 'assets/icons/splash_logo.svg';
 }

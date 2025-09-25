@@ -39,6 +39,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      
       width: 240,
       backgroundColor: AppColors.drawerColor.withOpacity(0.9),
       child: Column(

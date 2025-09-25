@@ -19,7 +19,7 @@ ThemeData lightMode = ThemeData(
     surfaceTintColor: Color(0xff014A3D),
   ),
   colorScheme: ColorScheme.light(
-    surface: Colors.grey.shade100,
+    surface: Colors.grey.shade100, 
 
     onPrimary: const Color.fromARGB(255, 2, 75, 4),
   ),

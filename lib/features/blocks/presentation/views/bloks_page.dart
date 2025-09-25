@@ -13,7 +13,7 @@ import 'package:svg_flutter/svg.dart';
 class BloksPage extends StatefulWidget {
   final String? blok;
   final BlokModel? blokModel;
-  const BloksPage({super.key,  this.blok, this.blokModel});
+  const BloksPage({super.key, this.blok, this.blokModel});
 
   @override
   State<BloksPage> createState() => _A1BlockPageState();
@@ -35,10 +35,13 @@ class _A1BlockPageState extends State<BloksPage> {
                 onPressed: () {
                   BloksDialog().bloksDialog(context);
                 },
-                icon: Icon(Icons.more_vert),
+                icon: Icon(Icons.menu),
               ),
             ],
-            title: Text(widget.blok ?? '', style: TextStyle(color: Colors.white)),
+            title: Text(
+              widget.blok ?? '',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           body: Column(
             children: [

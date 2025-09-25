@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:miwe/colors/app_colors.dart';
 import 'package:miwe/features/blocks/data/block_model/blok_model.dart';
 import 'package:miwe/features/blocks/presentation/views/bloks_page.dart';
+import 'package:miwe/features/blocks/presentation/views/map_gardens.dart';
 import 'package:miwe/features/blocks/presentation/widgets/chart_card.dart';
 import 'package:miwe/const_views/widgets/my_drawer.dart';
 import 'package:miwe/const_views/qr_scanner.dart/qr_scanner.dart';
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BloksPage(blok: bloks.blokNumber),
+                        builder: (context) =>MapGardens(good: bloks.gowy, waterless: bloks.suwsyz, sick: bloks.guran, dry: bloks.guran, unmarked: bloks.bellenmedik, blokNumber: bloks.blokNumber)
                       ),
                     );
                   },

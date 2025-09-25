@@ -7,6 +7,8 @@ import 'package:intl/intl.dart';
 import 'package:miwe/colors/app_colors.dart';
 import 'package:miwe/const_views/widgets/lists.dart';
 import 'package:miwe/features/garden/presentation/views/garden_status.dart';
+import 'package:miwe/features/garden/presentation/views/image_page.dart';
+import 'package:miwe/features/garden/presentation/views/images_camera.dart';
 import 'package:miwe/features/garden/presentation/widgets/image_indicator.dart';
 import 'package:miwe/features/garden/presentation/widgets/note_button.dart';
 import 'package:miwe/const_views/widgets/text_filed_app.dart';
@@ -279,10 +281,22 @@ class _GardenNotePageState extends State<GardenNotePage> {
                             itemBuilder: (context, index) {
                               return ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.memory(
-                                  imageList[index],
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) =>
+                                                ImagesCamera(images: imageList),
+                                      ),
+                                    );
+                                  },
+                                  child: Image.memory(
+                                    imageList[index],
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                  ),
                                 ),
                               );
                             },

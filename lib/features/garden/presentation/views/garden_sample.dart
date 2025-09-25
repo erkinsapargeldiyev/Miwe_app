@@ -101,20 +101,7 @@ class GardenSample extends StatelessWidget {
               const CustomRowText(title: 'Suwarylan sany:', valueText: '2'),
 
               const SizedBox(height: 20),
-              StoryAndNotes(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              GardeniHistoryNotes(gardenId: gardenModel.id),
-                    ),
-                  );
-                },
-                title: 'Bagyň geçmişi',
-                svgAdress: AppVectors.story,
-              ),
+             
               SizedBox(height: 10),
               StoryAndNotes(
                 onTap: () {

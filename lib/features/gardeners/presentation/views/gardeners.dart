@@ -15,7 +15,25 @@ class Gardeners extends StatefulWidget {
 }
 
 class _GardenersState extends State<Gardeners> {
-  List<String> gardenersList = ['Maksat', "Myrat", 'Aman', 'Ahmet'];
+  List<String> gardenersList = [
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+    'Maksat',
+    "Myrat",
+    'Aman',
+    'Ahmet',
+  ];
+
+   DateTimeRange selectedDates = DateTimeRange(
+    start: DateTime.now(),
+    end: DateTime.now(),
+  );
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -26,23 +44,71 @@ class _GardenersState extends State<Gardeners> {
           appBar: AppBar(
             title: Text('Agranomlar'),
             actions: [
-              SvgPicture.asset(AppVectors.calendar),
-              SizedBox(width: 10),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Text(
-                  DateFormat('dd-MM-yyyy').format(DateTime.now()),
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 14,
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
+              InkWell(
+                onTap: () async{
+                  final DateTimeRange? dateTimeRange = await showDateRangePicker(
+              context: context,
+              firstDate: DateTime(2025),
+              lastDate: DateTime(3000),
+              builder: (context, child) {
+                return Theme(
+                  data: Theme.of(context).copyWith(
+                    datePickerTheme: DatePickerThemeData(
+                      rangeSelectionBackgroundColor:
+                          Colors.grey[300], // Ortadaky günler
+                      // Soňky
+                      todayBackgroundColor: MaterialStateProperty.all(
+                        Colors.transparent,
+                      ),
+                    ),
+                    colorScheme: ColorScheme.light(
+                      primary: Colors.black, // Saýlanan günleriň basgysy
+                      onPrimary: Colors.white, // Gün ýazgysy (saýlananlar üçin)
+                      surface: Colors.white,
+                      onSurface:
+                          Colors.black, // Gün ýazgysy (saýlanmadyklar üçin)
+                    ),
+                    textTheme: TextTheme(
+                      bodyMedium: TextStyle(
+                        color: Colors.black,
+                      ), // Gün ýazgylary
+                    ),
                   ),
+                  child: child!,
+                );
+              },
+            );
+
+            if (dateTimeRange != null) {
+              setState(() {
+                selectedDates = dateTimeRange;
+              });
+            }
+                },
+                child: Row(
+                  children: [
+                    SvgPicture.asset(AppVectors.calendar),
+                    SizedBox(width: 10),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(
+                        DateFormat('dd-MM-yyyy').format(DateTime.now()),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.headlineLarge?.copyWith(
+                          fontSize: 14,
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
           body: ListView.builder(
-            itemCount: 3,
+            itemCount: gardenersList.length,
             itemBuilder: (context, index) {
               final gardener = gardenersList[index];
               return Column(
